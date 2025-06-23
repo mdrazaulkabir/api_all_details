@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -51,7 +50,12 @@ class _GetApiPropertiesState extends State<GetApiProperties> {
         child: ListView.builder(
           itemCount: post.length,
             itemBuilder: (context,index){
-          return Text( index.toString());
+          return ListTile(
+            leading:CircleAvatar(child: Text(index.toString()),backgroundColor: Colors.greenAccent,),
+            trailing: Icon(Icons.person,color: Colors.yellow,),
+            title: Text("Name: ${post[index]['name']}"),
+            subtitle: Text("Email: ${post[index]['email']}"),
+          );
           //print(post);
         }),
       ),
